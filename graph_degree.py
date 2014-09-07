@@ -23,13 +23,6 @@ def make_complete_graph(num_nodes=0):
     Output:
         digraph = {node: {possible edges}, ...}
     """
-    try:
-        num_nodes = int(float(num_nodes))
-    except ValueError:
-        num_nodes = 0
-    except TypeError:
-        num_nodes = 0
-
     if num_nodes > 0:
         digraph = {}
         nodes = [n for n in range(num_nodes)]
@@ -55,8 +48,6 @@ def compute_in_degrees(digraph):
     res = {node: 0 for node in digraph.keys()}
     for indegrees in digraph.values():
         for indegree in indegrees:
-            if indegree not in res.keys():
-                res[indegree] = 1
             res[indegree] += 1
     return res
 
@@ -74,6 +65,7 @@ def in_degree_distribution(digraph):
     distribution = {}
     for count in digraph.values():
         if count not in distribution.keys():
-            distribution[count] = 0
-        distribution[count] += 1
+            distribution[count] = 1
+	else:
+            distribution[count] += 1
     return distribution
