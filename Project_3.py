@@ -126,7 +126,7 @@ def fast_closest_pair(cluster_list):
 
     # compute answer recursively
     #  print vert_order[0].real
-    fast_helper(cluster_list, horiz_order, vert_order)
+    # fast_helper(cluster_list, horiz_order, vert_order)
     answer = fast_helper(cluster_list, horiz_order, vert_order)
     #  return slow_closest_pairs(cluster_list)
     return (answer[0], min(answer[1:]), max(answer[1:]))
